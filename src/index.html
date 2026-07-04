@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git GUI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="titlebar-spacer"></div>
+
+  <div id="empty-state" class="screen">
+    <div class="empty-card">
+      <svg class="empty-mark" viewBox="0 0 64 64" fill="none">
+        <line x1="32" y1="8" x2="32" y2="56" stroke="var(--line)" stroke-width="2"/>
+        <line x1="32" y1="32" x2="48" y2="32" stroke="var(--line)" stroke-width="2"/>
+        <line x1="48" y1="32" x2="48" y2="44" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="32" cy="8" r="5" fill="var(--teal)"/>
+        <circle cx="32" cy="32" r="6" fill="var(--gold)"/>
+        <circle cx="32" cy="56" r="5" fill="var(--teal)"/>
+        <circle cx="48" cy="44" r="5" fill="var(--coral)"/>
+      </svg>
+      <h1>Git GUI</h1>
+      <p>Point this at a folder to see its history and manage changes.</p>
+      <div class="empty-actions">
+        <button id="btn-open" class="btn btn-primary">Open Repository…</button>
+        <button id="btn-init" class="btn btn-ghost">Init New Repository…</button>
+        <button id="btn-clone" class="btn btn-ghost">Clone from URL…</button>
+      </div>
+      <p id="empty-error" class="empty-error"></p>
+    </div>
+  </div>
+
+  <div id="app-shell" class="screen hidden">
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <div id="repo-name" class="repo-name">—</div>
+        <button id="btn-switch-repo" class="icon-btn" title="Open a different repository">⇄</button>
+      </div>
+
+      <div class="sidebar-section-label">
+        <span>Branches</span>
+        <button id="btn-new-branch" class="icon-btn" title="New branch">＋</button>
+      </div>
+      <div id="branch-list" class="branch-list"></div>
+    </aside>
+
+    <main id="main">
+      <header id="toolbar">
+        <div class="toolbar-left">
+          <span id="current-branch-pill" class="pill">—</span>
+          <span id="ahead-behind" class="ahead-behind"></span>
+        </div>
+        <nav class="tabs">
+          <button class="tab active" data-tab="changes">Changes</button>
+          <button class="tab" data-tab="history">History</button>
+        </nav>
+        <div class="toolbar-right">
+          <button id="btn-pull" class="btn btn-ghost btn-small">Pull</button>
+          <button id="btn-push" class="btn btn-ghost btn-small">Push</button>
+          <button id="btn-refresh" class="icon-btn" title="Refresh">⟳</button>
+        </div>
+      </header>
+
+      <section id="panel-changes" class="panel">
+        <div class="changes-grid">
+          <div class="file-column">
+            <div class="file-column-header">
+              <span>Staged</span>
+              <button id="btn-unstage-all" class="link-btn">Unstage all</button>
+            </div>
+            <div id="staged-list" class="file-list"></div>
+          </div>
+          <div class="file-column">
+            <div class="file-column-header">
+              <span>Changes</span>
+              <button id="btn-stage-all" class="link-btn">Stage all</button>
+            </div>
+            <div id="unstaged-list" class="file-list"></div>
+          </div>
+        </div>
+        <div class="commit-box">
+          <textarea id="commit-message" placeholder="Commit message…" rows="2"></textarea>
+          <button id="btn-commit" class="btn btn-primary">Commit</button>
+        </div>
+        <p id="changes-error" class="inline-error"></p>
+      </section>
+
+      <section id="panel-history" class="panel hidden">
+        <div id="commit-graph" class="commit-graph"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal">
+      <h2 id="modal-title">New branch</h2>
+      <input id="modal-input" type="text" placeholder="branch-name" />
+      <p id="modal-error" class="inline-error"></p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn btn-ghost">Cancel</button>
+        <button id="modal-confirm" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
