@@ -65,7 +65,7 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 360px;
 }
 
-.empty-mark { width: 56px; height: 56px; margin-bottom: 18px; }
+.empty-mark { width: 140px; height: 140px; margin-bottom: 18px; object-fit: contain; }
 
 .empty-card h1 {
   font-family: var(--font-mono);

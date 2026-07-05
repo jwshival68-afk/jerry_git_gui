@@ -9,3 +9,4 @@ src-tauri/gen/
 **/.DS_Store
 .claude
 node_modules/
+docs/

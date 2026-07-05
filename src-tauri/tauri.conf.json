@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Git GUI",
+  "productName": "JerryGG",
   "version": "0.1.0",
   "identifier": "com.example.gitgui",
   "build": {
@@ -10,7 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Git GUI",
+        "title": "JerryGG",
         "width": 1180,
         "height": 760,
         "minWidth": 860,
