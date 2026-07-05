@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="armorGrad" cx="0.35" cy="0.35" r="0.65">
+      <stop offset="0%" stop-color="#D8DDE3"/>
+      <stop offset="100%" stop-color="#8A9299"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5C842"/>
+      <stop offset="100%" stop-color="#A87020"/>
+    </linearGradient>
+    <linearGradient id="capeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B0000"/>
+      <stop offset="100%" stop-color="#5A0000"/>
+    </linearGradient>
+    <radialGradient id="furGrad" cx="0.40" cy="0.35" r="0.65">
+      <stop offset="0%" stop-color="#D4884A"/>
+      <stop offset="100%" stop-color="#A85E28"/>
+    </radialGradient>
+    <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E8EAEC"/>
+      <stop offset="100%" stop-color="#B0B8C0"/>
+    </linearGradient>
+    <radialGradient id="helmetGrad" cx="0.35" cy="0.30" r="0.65">
+      <stop offset="0%" stop-color="#C8CDD3"/>
+      <stop offset="100%" stop-color="#7A8288"/>
+    </radialGradient>
+    <clipPath id="shieldTopClip">
+      <rect x="0" y="0" width="1024" height="530"/>
+    </clipPath>
+    <clipPath id="shieldBottomClip">
+      <rect x="0" y="530" width="1024" height="494"/>
+    </clipPath>
+  </defs>
+
+  <!-- Layer 1: Cape (bottom-most) -->
+  <g id="cape">
+    <path d="M 400,425 C 290,415 220,510 235,720 L 245,845 C 252,892 310,905 362,878 L 372,820 L 392,665 L 400,650 Z"
+          fill="url(#capeGrad)" stroke="#3A0000" stroke-width="3"/>
+    <path d="M 624,425 C 734,415 808,510 795,720 L 785,845 C 778,892 720,905 662,878 L 652,820 L 632,665 L 624,650 Z"
+          fill="url(#capeGrad)" stroke="#3A0000" stroke-width="3"/>
+  </g>
+
+  <!-- Layer 2: Body armor -->
+  <g id="body">
+    <rect x="392" y="415" width="240" height="220" rx="28" ry="28"
+          fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="6"/>
+    <rect x="406" y="429" width="212" height="192" rx="20" ry="20"
+          fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
+    <rect x="480" y="388" width="64" height="32" rx="8" ry="8"
+          fill="#5A6068" stroke="#3A3F45" stroke-width="2"/>
+    <ellipse cx="375" cy="432" rx="72" ry="38"
+             fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="5"/>
+    <ellipse cx="649" cy="432" rx="72" ry="38"
+             fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="5"/>
+    <rect x="392" y="622" width="240" height="42" rx="8" ry="8"
+          fill="#7B4A1E" stroke="#5A3010" stroke-width="2"/>
+    <rect x="494" y="628" width="36" height="30" rx="4" ry="4"
+          fill="url(#goldGrad)" stroke="#A87020" stroke-width="2"/>
+    <rect x="510" y="634" width="4" height="18" rx="1" fill="#5A3010"/>
+    <path d="M 492,462 C 492,457 499,454 512,454 C 525,454 532,457 532,462 L 532,488 C 532,502 512,514 512,514 C 512,514 492,502 492,488 Z"
+          fill="#1A3A6B" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <circle cx="512" cy="476" r="7" fill="#D4A017"/>
+    <circle cx="505" cy="468" r="5" fill="#D4A017"/>
+    <circle cx="519" cy="468" r="5" fill="#D4A017"/>
+    <polygon points="512,486 513.5,491 518.5,491 514.5,494 516,499 512,496 508,499 509.5,494 505.5,491 510.5,491"
+             fill="#D4A017"/>
+  </g>
+
+  <!-- Layer 3: Arms -->
+  <g id="arms">
+    <rect x="307" y="432" width="68" height="190" rx="20" ry="20"
+          fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <rect x="307" y="594" width="68" height="24" rx="8" ry="8"
+          fill="url(#goldGrad)"/>
+    <rect x="649" y="432" width="68" height="190" rx="20" ry="20"
+          fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <rect x="649" y="594" width="68" height="24" rx="8" ry="8"
+          fill="url(#goldGrad)"/>
+    <circle cx="683" cy="635" r="32"
+            fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <line x1="665" y1="622" x2="700" y2="622" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="663" y1="632" x2="702" y2="632" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Layer 4: Legs + boots -->
+  <g id="legs">
+    <rect x="408" y="664" width="90" height="190" rx="14" ry="14"
+          fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <ellipse cx="453" cy="742" rx="36" ry="22"
+             fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+    <rect x="526" y="664" width="90" height="190" rx="14" ry="14"
+          fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <ellipse cx="571" cy="742" rx="36" ry="22"
+             fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+    <rect x="396" y="842" width="108" height="108" rx="18" ry="18"
+          fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <ellipse cx="450" cy="942" rx="54" ry="14"
+             fill="url(#goldGrad)" stroke="#A87020" stroke-width="2"/>
+    <rect x="520" y="842" width="108" height="108" rx="18" ry="18"
+          fill="url(#armorGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <ellipse cx="574" cy="942" rx="54" ry="14"
+             fill="url(#goldGrad)" stroke="#A87020" stroke-width="2"/>
+  </g>
+
+  <!-- Layer 5: Head + ears + face -->
+  <g id="head">
+    <ellipse cx="428" cy="210" rx="66" ry="76"
+             fill="url(#furGrad)" stroke="#7A3A10" stroke-width="3"/>
+    <ellipse cx="428" cy="215" rx="44" ry="52"
+             fill="#E8A0A0" opacity="0.7"/>
+    <ellipse cx="596" cy="210" rx="66" ry="76"
+             fill="url(#furGrad)" stroke="#7A3A10" stroke-width="3"/>
+    <ellipse cx="596" cy="215" rx="44" ry="52"
+             fill="#E8A0A0" opacity="0.7"/>
+    <circle cx="512" cy="298" r="108"
+            fill="url(#furGrad)" stroke="#7A3A10" stroke-width="3"/>
+    <circle cx="486" cy="278" r="20" fill="#FFFFFF"/>
+    <circle cx="538" cy="278" r="20" fill="#FFFFFF"/>
+    <circle cx="490" cy="282" r="12" fill="#3A2010"/>
+    <circle cx="534" cy="282" r="12" fill="#3A2010"/>
+    <circle cx="494" cy="276" r="4" fill="#FFFFFF"/>
+    <circle cx="538" cy="276" r="4" fill="#FFFFFF"/>
+    <line x1="470" y1="255" x2="504" y2="263" stroke="#3A2010" stroke-width="5" stroke-linecap="round"/>
+    <line x1="520" y1="263" x2="554" y2="255" stroke="#3A2010" stroke-width="5" stroke-linecap="round"/>
+    <ellipse cx="512" cy="335" rx="42" ry="30"
+             fill="#C47A3A" opacity="0.6"/>
+    <ellipse cx="512" cy="316" rx="10" ry="7" fill="#3A2010"/>
+    <line x1="475" y1="330" x2="390" y2="318" stroke="#C0C0C0" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="473" y1="342" x2="386" y2="348" stroke="#C0C0C0" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="549" y1="330" x2="634" y2="318" stroke="#C0C0C0" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="551" y1="342" x2="638" y2="348" stroke="#C0C0C0" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Layer 6: Helmet -->
+  <g id="helmet">
+    <path d="M 395,308 C 392,252 422,182 512,172 C 602,182 632,252 629,308 L 578,308 C 575,264 552,242 512,242 C 472,242 449,264 446,308 Z"
+          fill="url(#helmetGrad)" stroke="url(#goldGrad)" stroke-width="5"/>
+    <path d="M 395,308 L 408,355 C 408,370 420,380 435,378 L 446,308 Z"
+          fill="url(#helmetGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <path d="M 629,308 L 616,355 C 616,370 604,380 589,378 L 578,308 Z"
+          fill="url(#helmetGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+    <rect x="446" y="258" width="120" height="56" rx="8" ry="8" fill="#1A1A20"/>
+    <rect x="446" y="266" width="120" height="9" rx="3" fill="url(#helmetGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <rect x="446" y="283" width="120" height="9" rx="3" fill="url(#helmetGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <rect x="446" y="300" width="120" height="9" rx="3" fill="url(#helmetGrad)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <rect x="395" y="304" width="234" height="16" rx="4" fill="url(#goldGrad)"/>
+    <rect x="500" y="172" width="24" height="30" rx="4" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Layer 7: Plume -->
+  <g id="plume">
+    <path d="M 510,178 C 494,152 462,118 428,88 C 410,72 385,60 365,58 C 382,72 404,82 420,98 C 446,124 466,152 478,178 Z"
+          fill="#CC2233" stroke="#8B0000" stroke-width="2"/>
+    <path d="M 505,180 C 490,158 466,128 440,102 C 432,94 420,85 410,79 C 424,90 440,108 452,126 C 464,146 474,166 480,182 Z"
+          fill="#FF4455" opacity="0.5"/>
+  </g>
+
+  <!-- Layer 8: Sword -->
+  <g id="sword">
+    <rect x="674" y="600" width="18" height="308" rx="3" ry="3"
+          fill="url(#bladeGrad)" stroke="#8A9299" stroke-width="1.5"
+          transform="rotate(5, 683, 600)"/>
+    <line x1="675" y1="610" x2="675" y2="680" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.5"
+          transform="rotate(5, 683, 600)"/>
+    <rect x="638" y="594" width="90" height="22" rx="6" ry="6"
+          fill="url(#goldGrad)" stroke="#A87020" stroke-width="2"/>
+    <rect x="674" y="548" width="18" height="50" rx="4" ry="4"
+          fill="#7B4A1E" stroke="#5A3010" stroke-width="2"/>
+    <line x1="674" y1="560" x2="692" y2="560" stroke="#5A3010" stroke-width="2"/>
+    <line x1="674" y1="572" x2="692" y2="572" stroke="#5A3010" stroke-width="2"/>
+    <line x1="674" y1="584" x2="692" y2="584" stroke="#5A3010" stroke-width="2"/>
+    <circle cx="683" cy="534" r="26" fill="#F5C842" stroke="#A87020" stroke-width="2.5"/>
+    <circle cx="676" cy="528" r="5" fill="#A87020"/>
+    <circle cx="690" cy="536" r="4" fill="#A87020"/>
+    <circle cx="679" cy="542" r="3.5" fill="#A87020"/>
+  </g>
+
+  <!-- Layer 9: Shield -->
+  <g id="shield">
+    <path d="M 228,405 C 228,395 240,388 310,388 C 380,388 393,395 393,405 L 393,540 C 393,595 360,635 310,660 C 260,635 228,595 228,540 Z"
+          fill="#1A3A6B" clip-path="url(#shieldTopClip)"/>
+    <path d="M 228,530 L 393,530 L 393,540 C 393,595 360,635 310,660 C 260,635 228,595 228,540 Z"
+          fill="url(#goldGrad)"/>
+    <line x1="228" y1="530" x2="393" y2="530" stroke="#D4A017" stroke-width="3"/>
+    <path d="M 228,405 C 228,395 240,388 310,388 C 380,388 393,395 393,405 L 393,540 C 393,595 360,635 310,660 C 260,635 228,595 228,540 Z"
+          fill="none" stroke="url(#goldGrad)" stroke-width="6"/>
+    <circle cx="272" cy="446" r="22" fill="#D4A017"/>
+    <circle cx="256" cy="428" r="15" fill="#D4A017"/>
+    <circle cx="288" cy="428" r="15" fill="#D4A017"/>
+    <polygon points="340,411 342.65,418.96 350.46,418.91 344.42,423.63 346.67,431.55 340,427 333.33,431.55 335.58,423.63 329.54,418.91 337.35,418.96"
+             fill="#F5C842"/>
+    <polygon points="315,461 317.06,467.46 323.56,467.41 318.54,471.38 320.44,477.81 315,474 309.56,477.81 311.46,471.38 306.44,467.41 312.94,467.46"
+             fill="#F5C842"/>
+    <polygon points="355,480 356.85,485.88 362.61,485.84 358.14,489.18 359.76,495.04 355,492 350.24,495.04 351.86,489.18 347.39,485.84 353.15,485.88"
+             fill="#F5C842"/>
+    <path d="M 338,548 L 382,548 L 368,588 Z"
+          fill="#F5C842" stroke="#A87020" stroke-width="1.5"/>
+    <circle cx="355" cy="558" r="5" fill="#A87020"/>
+    <circle cx="367" cy="556" r="4" fill="#A87020"/>
+    <circle cx="360" cy="570" r="3.5" fill="#A87020"/>
+    <circle cx="228" cy="405" r="6" fill="#D4A017" stroke="#A87020" stroke-width="1.5"/>
+    <circle cx="310" cy="388" r="6" fill="#D4A017" stroke="#A87020" stroke-width="1.5"/>
+    <circle cx="393" cy="405" r="6" fill="#D4A017" stroke="#A87020" stroke-width="1.5"/>
+    <circle cx="393" cy="530" r="6" fill="#D4A017" stroke="#A87020" stroke-width="1.5"/>
+    <circle cx="228" cy="530" r="6" fill="#D4A017" stroke="#A87020" stroke-width="1.5"/>
+    <circle cx="310" cy="660" r="6" fill="#D4A017" stroke="#A87020" stroke-width="1.5"/>
+  </g>
+
+  <!-- Layer 10: Highlights -->
+  <g id="highlights">
+    <ellipse cx="440" cy="445" rx="55" ry="32" fill="#FFFFFF" opacity="0.25"/>
+    <ellipse cx="355" cy="420" rx="30" ry="16" fill="#FFFFFF" opacity="0.30"/>
+    <ellipse cx="628" cy="420" rx="30" ry="16" fill="#FFFFFF" opacity="0.30"/>
+    <ellipse cx="425" cy="690" rx="22" ry="35" fill="#FFFFFF" opacity="0.20"/>
+    <ellipse cx="543" cy="690" rx="22" ry="35" fill="#FFFFFF" opacity="0.20"/>
+    <ellipse cx="474" cy="200" rx="38" ry="22" fill="#FFFFFF" opacity="0.28"/>
+    <ellipse cx="476" cy="270" rx="30" ry="22" fill="#FFFFFF" opacity="0.15"/>
+    <ellipse cx="256" cy="420" rx="28" ry="18" fill="#FFFFFF" opacity="0.18"/>
+  </g>
+</svg>
