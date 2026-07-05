@@ -3,8 +3,9 @@ import { listBranches, switchBranch, deleteBranch } from '../api.js';
 import { $, el } from './dom.js';
 import { toast } from './toast.js';
 
-// Tracks which folder keys are collapsed. Key format: "local", "local/feature", "origin", "origin/feature"
-const collapsed = new Set();
+// Tracks which folder keys are explicitly expanded. Everything is collapsed by default.
+// Key format: "local", "local/feature", "origin", "origin/feature"
+const expanded = new Set();
 
 // ── Context menu (singleton) ──────────────────────────────────────
 let ctxMenu = null;
@@ -60,22 +61,22 @@ function makeFolderKey(groupName, prefix) {
 function renderGroup(container, groupName, prefixMap, isSwitchable, onRefreshAll) {
   const groupKey = groupName;
   const groupHeader = el('div', 'branch-group-header');
-  const arrow = el('span', 'tree-arrow', '▾');
-  if (collapsed.has(groupKey)) arrow.classList.add('collapsed');
+  const arrow = el('span', 'tree-arrow collapsed', '▾');
+  if (expanded.has(groupKey)) arrow.classList.remove('collapsed');
   groupHeader.append(arrow, el('span', null, groupName));
 
-  const groupBody = el('div', 'branch-group-body');
-  if (collapsed.has(groupKey)) groupBody.classList.add('hidden');
+  const groupBody = el('div', 'branch-group-body hidden');
+  if (expanded.has(groupKey)) groupBody.classList.remove('hidden');
 
   groupHeader.addEventListener('click', () => {
-    if (collapsed.has(groupKey)) {
-      collapsed.delete(groupKey);
-      arrow.classList.remove('collapsed');
-      groupBody.classList.remove('hidden');
-    } else {
-      collapsed.add(groupKey);
+    if (expanded.has(groupKey)) {
+      expanded.delete(groupKey);
       arrow.classList.add('collapsed');
       groupBody.classList.add('hidden');
+    } else {
+      expanded.add(groupKey);
+      arrow.classList.remove('collapsed');
+      groupBody.classList.remove('hidden');
     }
   });
 
@@ -98,22 +99,22 @@ function renderGroup(container, groupName, prefixMap, isSwitchable, onRefreshAll
     } else {
       const folderKey = makeFolderKey(groupName, prefix);
       const folderRow = el('div', 'branch-folder-row');
-      const folderArrow = el('span', 'tree-arrow', '▾');
-      if (collapsed.has(folderKey)) folderArrow.classList.add('collapsed');
+      const folderArrow = el('span', 'tree-arrow collapsed', '▾');
+      if (expanded.has(folderKey)) folderArrow.classList.remove('collapsed');
       folderRow.append(folderArrow, el('span', null, prefix));
 
-      const folderBody = el('div', 'branch-folder-body');
-      if (collapsed.has(folderKey)) folderBody.classList.add('hidden');
+      const folderBody = el('div', 'branch-folder-body hidden');
+      if (expanded.has(folderKey)) folderBody.classList.remove('hidden');
 
       folderRow.addEventListener('click', () => {
-        if (collapsed.has(folderKey)) {
-          collapsed.delete(folderKey);
-          folderArrow.classList.remove('collapsed');
-          folderBody.classList.remove('hidden');
-        } else {
-          collapsed.add(folderKey);
+        if (expanded.has(folderKey)) {
+          expanded.delete(folderKey);
           folderArrow.classList.add('collapsed');
           folderBody.classList.add('hidden');
+        } else {
+          expanded.add(folderKey);
+          folderArrow.classList.remove('collapsed');
+          folderBody.classList.remove('hidden');
         }
       });
 
