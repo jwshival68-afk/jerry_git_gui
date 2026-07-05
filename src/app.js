@@ -36,6 +36,36 @@ async function handleInitRepo() {
   loadRepo(path);
 }
 
+function setupSidebarResizer() {
+  const sidebar = $('#sidebar');
+  const resizer = $('#sidebar-resizer');
+  let startX, startWidth;
+
+  resizer.addEventListener('mousedown', (e) => {
+    startX = e.clientX;
+    startWidth = sidebar.offsetWidth;
+    resizer.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+
+    function onMouseMove(e) {
+      const newWidth = Math.min(480, Math.max(140, startWidth + (e.clientX - startX)));
+      sidebar.style.width = newWidth + 'px';
+    }
+
+    function onMouseUp() {
+      resizer.classList.remove('dragging');
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    }
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  });
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   window.nav.registerScreen('welcome', $('#empty-state'));
   window.nav.registerScreen('app', $('#app-shell'), async ({ path }) => {
@@ -47,6 +77,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setupToolbar(refreshAll);
   setupChanges(refreshAll);
   setupModal(() => refreshBranches(refreshAll), loadRepo);
+  setupSidebarResizer();
 
   $('#btn-open').addEventListener('click', openRepoPicker);
   $('#btn-init').addEventListener('click', handleInitRepo);

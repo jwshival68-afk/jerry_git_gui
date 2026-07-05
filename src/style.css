@@ -155,15 +155,29 @@ button { font-family: inherit; cursor: pointer; }
 
 #sidebar {
   width: 220px;
-  min-width: 220px;
+  min-width: 140px;
+  max-width: 480px;
   background: var(--panel);
-  border-right: 1px solid var(--border);
+  border-right: none;
   padding: 10px 10px 16px;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 28px);
+  flex-shrink: 0;
   -webkit-app-region: drag;
 }
+
+#sidebar-resizer {
+  width: 4px;
+  flex-shrink: 0;
+  height: calc(100vh - 28px);
+  background: var(--border);
+  cursor: col-resize;
+  transition: background 0.15s ease;
+  -webkit-app-region: no-drag;
+}
+#sidebar-resizer:hover,
+#sidebar-resizer.dragging { background: var(--gold-dim); }
 
 .sidebar-header {
   display: flex;
