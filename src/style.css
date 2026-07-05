@@ -214,6 +214,7 @@ button { font-family: inherit; cursor: pointer; }
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
+  cursor: pointer;
 }
 .branch-row:hover { background: var(--panel-2); color: var(--text); }
 .branch-row.current { color: var(--gold); background: rgba(216, 164, 76, 0.08); }
