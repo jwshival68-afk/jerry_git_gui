@@ -591,3 +591,30 @@ button { font-family: inherit; cursor: pointer; }
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
+
+/* ---------- Branch context menu ---------- */
+.branch-ctx-menu {
+  position: fixed;
+  z-index: 40;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.ctx-menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--coral);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  padding: 7px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ctx-menu-item:hover { background: var(--panel-2); }
