@@ -234,6 +234,50 @@ button { font-family: inherit; cursor: pointer; }
 .branch-row:hover .branch-delete { opacity: 0.8; }
 .branch-row .branch-delete:hover { opacity: 1; }
 
+/* Branch tree: group headers and folder rows */
+.branch-group-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 8px 4px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-app-region: no-drag;
+  border-radius: 6px;
+}
+.branch-group-header:hover { color: var(--text-dim); background: var(--panel-2); }
+
+.branch-folder-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 18px;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 6px;
+  -webkit-app-region: no-drag;
+}
+.branch-folder-row:hover { color: var(--text-dim); background: var(--panel-2); }
+
+.tree-arrow {
+  display: inline-block;
+  font-size: 9px;
+  transition: transform 0.15s ease;
+  width: 10px;
+  flex-shrink: 0;
+}
+.tree-arrow.collapsed { transform: rotate(-90deg); }
+
+.branch-row.indented { padding-left: 32px; }
+.branch-row.group-child { padding-left: 20px; }
+
 /* ---------- Main ---------- */
 #main {
   flex: 1;
