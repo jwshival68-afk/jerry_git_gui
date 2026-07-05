@@ -65,11 +65,7 @@ function openCloneModal() {
 }
 
 async function loadRepo(path) {
-  state.repoPath = path;
-  $("#empty-state").classList.add("hidden");
-  $("#app-shell").classList.remove("hidden");
-  $("#repo-name").textContent = path.split("/").filter(Boolean).pop() || path;
-  await refreshAll();
+  nav.navigate("app", { path });
 }
 
 // ---------- render: status / changes ----------
@@ -245,13 +241,19 @@ async function confirmModal() {
 
 // ---------- wire up ----------
 window.addEventListener("DOMContentLoaded", () => {
+  nav.registerScreen("welcome", $("#empty-state"));
+  nav.registerScreen("app", $("#app-shell"), async ({ path }) => {
+    state.repoPath = path;
+    $("#repo-name").textContent = path.split("/").filter(Boolean).pop() || path;
+    await refreshAll();
+  });
+
   $("#btn-open").addEventListener("click", openRepoPicker);
   $("#btn-init").addEventListener("click", initRepo);
   $("#btn-clone").addEventListener("click", openCloneModal);
   $("#btn-switch-repo").addEventListener("click", () => {
-    $("#app-shell").classList.add("hidden");
-    $("#empty-state").classList.remove("hidden");
     $("#empty-error").textContent = "";
+    nav.navigate("welcome");
   });
 
   $("#btn-refresh").addEventListener("click", refreshAll);
