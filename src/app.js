@@ -65,11 +65,7 @@ function openCloneModal() {
 }
 
 async function loadRepo(path) {
-  state.repoPath = path;
-  $("#empty-state").classList.add("hidden");
-  $("#app-shell").classList.remove("hidden");
-  $("#repo-name").textContent = path.split("/").filter(Boolean).pop() || path;
-  await refreshAll();
+  nav.navigate("app", { path });
 }
 
 // ---------- render: status / changes ----------
@@ -245,13 +241,38 @@ async function confirmModal() {
 
 // ---------- wire up ----------
 window.addEventListener("DOMContentLoaded", () => {
+  nav.registerScreen("welcome", $("#empty-state"));
+  nav.registerScreen("app", $("#app-shell"), async ({ path }) => {
+    state.repoPath = path;
+    $("#repo-name").textContent = path.split("/").filter(Boolean).pop() || path;
+    await refreshAll();
+  });
+
+  // JS-based window dragging + double-click fullscreen toggle (Tauri 2)
+  const appWin = window.__TAURI__.window.getCurrentWindow();
+  let lastClickTime = 0;
+  ["#titlebar-spacer", "#toolbar", "#sidebar"].forEach((sel) => {
+    const domEl = $(sel);
+    if (!domEl) return;
+    domEl.addEventListener("mousedown", (e) => {
+      if (e.button !== 0 || e.target.closest("button, input, a, select, .branch-row")) return;
+      const now = Date.now();
+      const isDoubleClick = now - lastClickTime < 300;
+      lastClickTime = now;
+      if (isDoubleClick) {
+        appWin.isFullscreen().then((full) => appWin.setFullscreen(!full));
+      } else {
+        appWin.startDragging();
+      }
+    });
+  });
+
   $("#btn-open").addEventListener("click", openRepoPicker);
   $("#btn-init").addEventListener("click", initRepo);
   $("#btn-clone").addEventListener("click", openCloneModal);
   $("#btn-switch-repo").addEventListener("click", () => {
-    $("#app-shell").classList.add("hidden");
-    $("#empty-state").classList.remove("hidden");
     $("#empty-error").textContent = "";
+    nav.navigate("welcome");
   });
 
   $("#btn-refresh").addEventListener("click", refreshAll);
